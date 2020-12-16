@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Conditional Demo</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      var likeSteak = prompt("Do you like steak? Yes or No");
+
+      if(likeSteak.toLowerCase() === "yes") {
+        alert( "Here's a Steak Sandwich!");
+      }
+      else if(likeSteak.toLowerCase() === "no") {
+        alert( " Here's a Tofu Stir-Fry!");
+      }
+      else {
+        alert("Then you get nothing!")
+      }
+
+      var howOld = prompt("What's your birthyear?")
+      
+
+      if( parseInt(howOld) > 1999) {
+        alert("No Sake for you!");
+      }
+      else if( parseInt(howOld) < 1999) {
+        alert("Enjoy some Sake!")
+      }
+
+      else {
+        alert("You just made it!");
+      }
+        
+      
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+    
+        
+    // creates array for computer to choose from.
+    let computerChoice = ["r", "p", "s"];
+
+    // creating variables to hold score.
+    let wins = 0;
+    let losses = 0;
+    let ties = 0;
+
+    
+    for (var i = 0; i<10; i++) {
+    // creating random choice for computer
+    let randomChoice= computerChoice[Math.floor(Math.random()* computerChoice.length)];
+    
+    // collect the user's response and convert to lower case.
+    let playerChoice = prompt("Enter r, p, or s to play.");
+        playerChoice = playerChoice.toLowerCase();
+
+    // only run game logic if user chose a valid option
+    if(playerChoice === "r" || playerChoice ==="p" || playerChoice ==="s") {
+
+        alert("The computer chose " + randomChoice);
+        // win/lose conditions:
+        if(randomChoice === playerChoice) {
+            ties++;
+            alert("You've tied " + ties + " time(s)");
+         } else if((randomChoice === "p" && playerChoice === "s") ||
+         (randomChoice === "s" && playerChoice === "r")|| 
+         (randomChoice === "r" && playerChoice === "p")) {
+            wins++ ;
+            alert("You've won " + wins + " time(s)!" );
+        } else {
+            losses++
+            alert("You've lost " + losses + " time(s)" );
+        }
+    }
+}
+    // when game is over, alert the totals to the user.
+        alert("Game over! Final score is " + "\nTotal wins: " + wins + "\nTotal losses: " + losses + "\nTotal ties: " + ties );
+
+    </script>
+  </body>
+</html>

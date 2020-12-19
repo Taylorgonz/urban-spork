@@ -53,19 +53,40 @@
 
       // TO DO: Log all of our car's current stats to the console.
       function reWriteStats() {
-        
-      }
+        console.log(car);
+        }
 
       // MAIN PROCESS
       // ==============================================================================
 
       // A while loop makes more sense here than a for loop, because we don't know how long the user will want to play the game
+
       // This loop will end when the user presses Cancel, thus setting the letter variable to "null"
       while (letter !== null) {
         // Prompt user to input a letter
         letter = prompt("Type 'h' to honk, 'd' to drive to work, 'w' to drive around the world, or 't' to get a tuneup.");
         
-        // TO DO: Call the different car methods
+        // TO DO: Call the different car methods\
+        letter= letter.toLowerCase();
+        if(letter === "h") {
+          car.honk();
+          reWriteStats();
+        }
+        else if( letter === "d" && car.isWorking) {
+          car.driveToWork();
+          reWriteStats();
+        }
+       
+        else if(letter === "w" && car.isWorking) {
+          car.driveAroundWorld();
+          reWriteStats();
+        }
+        
+        else if(letter === "t") {
+          car.getTuneUp();
+          reWriteStats();
+        }
+      
       }
 
     </script>

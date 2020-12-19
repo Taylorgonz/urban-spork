@@ -9,31 +9,31 @@
 <body>
   <script type="text/javascript">
     var gandalf = {
-      "real name": "Gandalf",
-      "age (est)": 11000,
-      "race": "Maia",
-      "haveRetirementPlan": true,
-      "aliases": [
+      realName: "Gandalf",
+      age: 11000,
+      race: "Maia",
+      haveRetirementPlan: true,
+      aliases: [
         "Greyhame",
         "Stormcrow",
         "Mithrandir",
         "Gandalf the Grey",
         "Gandalf the White"
       ],
-      "favoriteSong": {
-        "name": "The Road Goes Ever On",
-        "artist": "Bilbo Baggins" 
+      favoriteSong: {
+        name: "The Road Goes Ever On",
+        artis: "Bilbo Baggins" 
       }
     };
 
     // Object properties can be accessed with "bracket notation"
-    alert("My name is " + gandalf["real name"]);
+    alert("My name is " + gandalf.realName);
 
     // Or with "dot notation" if the property has no spaces
     if (gandalf.haveRetirementPlan) {
 
       // Or with a variable that matches the name of the property
-      var ageProperty = "age (est)";
+      var ageProperty = .age;
       var years = gandalf[ageProperty];
       alert("My 401k has been gathering interest for " + years + " years!");
     }
@@ -42,7 +42,7 @@
     alert("I have more than " + gandalf.aliases.length + " aliases");
 
     // Non-existent properties return undefined
-    alert("My designation is " + gandalf["designation"]);
+    alert("My designation is " + gandalf.designation);
 
     // Objects can also contain other objects, whose properties can be accessed by chaining dot notation
     alert("My favorite song was written by " + gandalf.favoriteSong.artist);

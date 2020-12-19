@@ -10,19 +10,52 @@
     <script>
 
         // printing the contents of the window to the console
-        console.log(navigator);
+        console.log(navigator.geolocation.getCurrentPosition);
+        // checking to see if browser supports feature
+        function geolocation() {
+            // provide showPosition() function to getCurrentPosition
+            if(navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else{
+                alert("Geolocation is not supported by this brower.");
+            }
+        }
+
+        // This will get called after the getCurrentPosition()
+        function showPosition() {
+            // Grab coordinates from the given object
+            let lat= position.coords.latitude;
+            let lon= position.coords.longitude;
+            console.log("Your coordinates are Latitutde: " + lat + " Longitude: " + lon);
+
+            // Call our next function, passing on the coordinateds
+            redirect(lat,lon)
+        }
+
+        function redirect(lat,lon) {
+            // compare latitude and longitude values
+            if(lat >=30 && lon <= -100) {
+                //redirect to a new page
+                window.location.href="western.hmtl";
+            }
+            else {
+                window.location.href = "eastern.html"
+            }
+        }
         function detectOS() {
-        
+        // sets perameter for what to look for in an OS
             let userAgent = window.navigator.userAgent,
                platform = window.navigator.platform,
                macosPlatforms= ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68k'],
                windowsPlatforms=['Win32', 'Win63', 'Windows','WinCE']
                os=null;
-
+            // alerts if user info is Mac OS
                if (macosPlatforms.indexOf(platform) !== -1) {
                     alert("Welcome, Mac user!");
+            // alerts if user info is Windows OS
                 } else if (windowsPlatforms.indexOf(platform) !== -1) {
-                    alert("Welcome, Windows user!")
+                    alert("Welcome, Windows user!");
             }
         }
 
